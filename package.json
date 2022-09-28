@@ -1,0 +1,15 @@
+{
+  "name": "test-1",
+  "version": "1.0.0",
+  "description": "Task for dev prospects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "type": "module",
+  "author": "Antti M",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.0.3"
+  }
+}
