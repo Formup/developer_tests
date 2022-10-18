@@ -31,7 +31,7 @@ printLeaderBoard();
 ```
 
 # Tests
-Jest package will be installed when you run `npm install`. Implement comprehensive unit tests that cover as many different cases as possible. See https://jestjs.io/docs/getting-started for how to write tests. Write your tests in `index.test.js` and run them with `npm test`.
+Mocha package will be installed when you run `npm install`. Implement comprehensive unit tests that cover as many different cases as possible. See https://mochajs.org/#getting-started for a simple example test. Write your tests in `test.js` and run them with `npm test`.
 
 # Emphasis
 Prefer `async/await` over `.then()` syntax when dealing with promises. Style-wise you can choose whatever you prefer (single or double quotation marks, semi-colon at the end of lines, indentations etc.) but be consistent.
