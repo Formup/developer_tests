@@ -1,39 +1,24 @@
-# Prerequisites
-* npm
+# Developer test
+## Description
+This is a test for developer recruitment candidates. The purpose of this test is to provide a fair point of comparison between candidates and help the recruiter assess the candidate's skills based on an assignment that the interviewer is familiar with. The technologies are chosen to be similar to what are used at Komu and the task is something that we had to solve earlier while developing our product.
 
-Run `npm install` in the project root.
+## Criteria
+Please put attention to the following criteria when completing the assignment:
+* Correctness: Your solution should do exactly what is specified.
+* Quality: Your code should follow good practices and demonstrate your craftsmanship.
+* Relevance: Your solution should be relevant to the task and not over-engineered.
 
-# Task
-Your task is to implement a function that returns the names of players sorted by their number of wins. Use `playerScores.js` to get the player scores. It returns an array of match results, where each element contains the scores of two players. The higher score wins and there can be ties. For example, the following return value means that Alice has won two games: 
-```
-[{
-    'alice': 10, 
-    'bob': 6
-}, {
-    'charlie': 4, 
-    'alice': 10
-}]
-```
-If two or more players have won the same number of games, you can return them in any order. In the above example, your function should return 
-```
-['alice', 'bob', 'charlie']  // or ['alice', 'charlie', 'bob]
-```
+## Repository
+The repository has been prepared to give you a starting point. Just run `npm install` and `npm test` to run the tests. `src` directory is all yours! Implement your solution and relevant tests there. Split your code to several files if that feels appropriate. If you need to add any dependencies or tweak TypeScript configuration, feel free to do so.
 
-Export your solution as the default export of `index.js`. Do not edit `playerScores.js`. For example, someone could use your solution like this:
-```
-import playersByScore from 'path/to/thisfolder/index.js'
+However, provide a single endpoint to your solution, as the default export from `src/generateSlots.ts`
 
-async function printLeaderBoard() {
-    console.log(await playersByScore()); // Prints ['alice', 'bob', 'charlie']
-}
+## Documentation
+You don't have to document your solution, but please document your process. We want to know where you spent your time and how much time you spent.
 
-printLeaderBoard();
-```
+### ChatGPT
+We tried to come up with a task that is not trivial to implement with the help of an AI agent. We won't prevent you from using such assistance, but please document how and to what extent you used it. We however encourage you to demonstrate your own skills rather than rely on ChatGPT even though that's available in day-to-day work.
 
-# Tests
-Mocha package will be installed when you run `npm install`. Implement comprehensive unit tests that cover as many different cases as possible. See https://mochajs.org/#getting-started for a simple example test. Write your tests in `test.js` and run them with `npm test`.
-
-# Emphasis
-Prefer `async/await` over `.then()` syntax when dealing with promises. Style-wise you can choose whatever you prefer (single or double quotation marks, semi-colon at the end of lines, indentations etc.) but be consistent.
-
-Pay extra attention on the quality of your solution. We want to see that you can write code that follows good practices, is consistent, doesn't contain whitespace when it doesn't help readability, is cleaned of `console.log`s etc.
+## Task
+// TODO: Add the task description here.
+// TODO: Add a tsconfig that defines the build folder. Set that directory up as the main endpoint in package.json.

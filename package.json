@@ -1,15 +1,27 @@
 {
-  "name": "test-1",
+  "name": "developer_tests",
   "version": "1.0.0",
-  "description": "Task for dev prospects.",
+  "description": "Developer homework for Komu Homes candidates",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
   "type": "module",
-  "author": "Antti M",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Formup/developer_tests.git"
+  },
+  "author": "Komu Homes",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Formup/developer_tests/issues"
+  },
+  "homepage": "https://github.com/Formup/developer_tests#readme",
   "devDependencies": {
-    "mocha": "^10.1.0"
+    "@types/jest": "^29.5.7",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   }
 }
