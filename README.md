@@ -47,3 +47,7 @@ For instance, consider a facility available on weekends at 18-20. You can book i
 If something is unclear, try to think in real life context. What are the likely constraints and desired behavior if someone wants to make a single booking to a laundry room or sauna? Feel free to send us a message if the assignment is still unclear.
 
 Use Luxon for date manipulation. It is included in the package.json.
+
+Here's a screenshot of what the data is used for in the application, to help you orientate (you can ignore the Facility selection, its related data is omitted in this task):
+
+<img width=400 src="./docs/bookingScreenshot.png" />
