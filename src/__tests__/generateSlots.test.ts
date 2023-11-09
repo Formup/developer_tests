@@ -11,17 +11,17 @@ describe('generateSlots', () => {
     });
 
     it('should not throw', () => {
-        bookableData1.durationsMinutes = [60];
+        bookableData1.durationMinutes = 30;
         const now = DateTime.local(2023, 12, 12, 6, 30);
         expect(() => generateSlots(now, bookableData1)).not.toThrow();
     });
 });
 
-function buildDefaultAvailability() {
+function buildDefaultAvailability(): AvailabilityData {
     const weekdays = Array.from({ length: 7 }, (_, i) => i + 1);
     return {
         calendarLengthDays: 7,
-        availability: weekdays.map((weekday) => ({
+        availabilityWindows: weekdays.map((weekday) => ({
             from: {
                 weekday,
                 hour: 8,
@@ -31,10 +31,9 @@ function buildDefaultAvailability() {
                 hour: 16,
             },
         })),
-        durationsMinutes: [30, 60],
+        durationMinutes: 60,
         mustBookHoursBefore: 1,
         bookings: [],
-        startIntervalMinutes: 30,
         timezone: 'Europe/Helsinki',
     }
 }

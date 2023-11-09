@@ -5,6 +5,7 @@ This is a homework assignment for developer recruitment candidates. The purpose 
 When completing the assignment, please pay attention to the following criteria:
 * Correctness: Your solution should do exactly what is specified.
 * Quality: Your code should follow good practices and demonstrate your craftsmanship.
+* Completeness: Consider edge cases.
 
 ## Repository
 The repository has been prepared to give you a starting point. Run `npm install` and `npm test` to execute the tests. The `src` directory is all yours! Implement your solution and relevant tests there. Split your code into several files as you feel appropriate. Feel free to add any dependencies or tweak the TypeScript configuration if needed.
@@ -19,35 +20,39 @@ Some time ago, we had to implement a sauna and laundry booking feature in our ap
 
 Your task is to develop an algorithm that generates a list of available time slots based on availability data. You can find the format of the availability data and explanations of each field in `src/types.ts`. The expected return type of the algorithm is also provided there.
 
-For example, consider a facility available on weekends from 18:00 to 20:00. You can book it no more than 7 days in advance, and today is December 12th, 2023. The returned data could be something like this (depending on other parameters):
+For example, consider a facility available on weekends from 18:00 to 20:30. You can make 1-hour bookings, but no more than 7 days in advance, and today is December 12th, 2023. The returned data could be something like this (depending on other parameters):
 
 ```JSON
 {
-    "2023-12-16": {
-        "60": [{
-            "from": "DateTime(2023-12-16T18:00:00.000Z)",
-            "to": "DateTime(2023-12-16T19:00:00.000Z)"
-        }, {
-            "from": "DateTime(2023-12-16T19:00:00.000Z)",
-            "to": "DateTime(2023-12-16T20:00:00.000Z)"
-        }]
-    },
-    "2023-12-17": {
-        "60": [{
-            "from": "DateTime(2023-12-17T18:00:00.000Z)",
-            "to": "DateTime(2023-12-17T19:00:00.000Z)"
-        }, {
-            "from": "DateTime(2023-12-17T19:00:00.000Z)",
-            "to": "DateTime(2023-12-17T20:00:00.000Z)"
-        }]
-    }
+    "2023-12-16": [{
+        "from": "DateTime(2023-12-16T18:00:00.000Z)",
+        "to": "DateTime(2023-12-16T19:00:00.000Z)"
+    }, {
+        "from": "DateTime(2023-12-16T19:00:00.000Z)",
+        "to": "DateTime(2023-12-16T20:00:00.000Z)"
+    }],
+    "2023-12-17": [{
+        "from": "DateTime(2023-12-17T18:00:00.000Z)",
+        "to": "DateTime(2023-12-17T19:00:00.000Z)"
+    }, {
+        "from": "DateTime(2023-12-17T19:00:00.000Z)",
+        "to": "DateTime(2023-12-17T20:00:00.000Z)"
+    }]
 }
 ```
+A few more points:
+* The first slot of an availability window must start at the beginning of the window. The subsequent slots must start at the end of the previous slot.
+* Dates that have no slots should not be included in the return object.
+* Slots must fit entirely inside an availability window.
+* If an existing booking overlaps with a slot, the slot must not be returned.
+* It's possible for an availability window to span over multiple days.
+* In the returned object, a slot should be under the date on which it starts.
+* You can assume that availability windows do not overlap each other.
 
 If something is unclear, try to think in the context of real-life scenarios. What are the likely constraints and desired behavior if someone wants to make a single booking for a laundry room or sauna? If the assignment is still unclear, feel free to send us a message.
 
 Use Luxon for date manipulation. It is included in the package.json.
 
-Here's a screenshot of how the data is used in the application, to help you orientate (you can ignore the Facility selection, as its related data is omitted in this task):
+Here's a screenshot of how the data is used in the application, to help you orientate (for this task, we have omitted facility and duration selection):
 
 <img width=400 src="./docs/bookingScreenshot.png" />
